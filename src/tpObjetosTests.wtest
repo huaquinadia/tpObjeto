@@ -1,5 +1,3 @@
-
-
 import example.*
 describe "tpdeobjetos" {
 test "obtener los destinos más importantes de Barrilete Cósmico"{
