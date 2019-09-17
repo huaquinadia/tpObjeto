@@ -1,47 +1,85 @@
 import example.*
 describe "tpdeobjetos" {
-test "obtener los destinos más importantes de Barrilete Cósmico"{
-barrileteCosmico.destinosMasImportantes()
-assert.equals(#{garlicsSea,lasToninas},barrileteCosmico.destinosMasImportantes())
-}
+	
+     test "obtener los destinos más importantes de Barrilete Cósmico"{
+        barrileteCosmico.destinosMasImportantes()
+        assert.equals(#{garlicsSea,lasToninas},barrileteCosmico.destinosMasImportantes())
+        }
 
-test "aplicarle un 25% de descuento a Last Toninas"{
-	barrileteCosmico.aplicarDescuentoDestinos(25)
-	assert.equals(2625,lasToninas.precio())
-	}
-test "aplicarle un 25% de descuento a Las Toninas"{
-barrileteCosmico.aplicarDescuentoDestinos(25)
-assert.equals(#{'vacuna gripal','vacuna B','necronomicon','Certificado de descuento'},lasToninas.equipajeimprescindible())
-}
-test "Averiguar si Silver's Sea es un destino peligroso"{
-	silversSea.esPeligroso()
-	assert.notThat(silversSea.esPeligroso())
-}
-test "Obtener los destinos más peligrosos hasta el momento"{
-	lasToninas.esPeligroso()
-	assert.that(lasToninas.esPeligroso())
-}
+     test "aplicarle un 25% de descuento a Last Toninas"{
+	    barrileteCosmico.aplicarDescuentoDestinos(25)
+	    assert.equals(2625,lasToninas.precio())
+	    }
+	    
+	    
+     test "aplicarle un 25% de descuento a Las Toninas"{
+        barrileteCosmico.aplicarDescuentoDestinos(25)
+        assert.equals(#{'vacuna gripal','vacuna B','necronomicon','Certificado de descuento'},lasToninas.equipajeimprescindible())
+        }
+        
+        
+      test "aplicar descuento del 15% a las toninas"{
+      	barrileteCosmico.aplicarDescuentoDestinos(15)
+      	assert.equals( 2975,lasToninas.precio())
+      }
+      
+       test "aplicar descuento del 15% a  garlicsSea"{
+       
+       barrileteCosmico.aplicarDescuentoDestinos(15)
+       assert.equals(2125,garlicsSea.precio())
+       }
+      
+      
+      test "aplicar descuento del 15% a goodAirs"{
+      	
+     barrileteCosmico.aplicarDescuentoDestinos(15)
+     assert.that(goodAirs.equipajeimprescindible().contains('Certificado de descuento'))
+      	  }
+     
+     
+     
+     test "aplicar el descuento del 15% a silversSea"{
+     	 barrileteCosmico.aplicarDescuentoDestinos(15)
+  assert.that(silversSea.equipajeimprescindible().contains('Certificado de descuento'))
+     }
+     
+    test "Averiguar si Silver's Sea es un destino peligroso"{
+	    silversSea.esPeligroso()
+	    assert.notThat(silversSea.esPeligroso())
+        }
+        
+    test "Obtener los destinos más peligrosos hasta el momento"{
+	    lasToninas.esPeligroso()
+	    assert.that(lasToninas.esPeligroso())
+        }
+        
+    test "Saber si Barrilete Cósmico es una empresa extrema"{
+    	 barrileteCosmico.esUnaEmpresaExtrema()
+    	 assert.that( barrileteCosmico.esUnaEmpresaExtrema())
+    }
 
-test "Saber si Barrilete Cósmico es una empresa extrema"{
-	barrileteCosmico.esUnaEmpresaExtrema()
-	assert.that(barrileteCosmico.esUnaEmpresaExtrema())
-	}
-test "Conocer la carta de destinos de Barrilete Cósmico"{
-assert.equals(#{garlicsSea,silversSea,lasToninas,goodAirs},barrileteCosmico.destinos())
-}
-test "Obtener las millas de PHari"{
-	usuario.millas()
-	assert.equals(500,usuario.kilometros())
-	}
-test "Hacer que PHari vuele a Silver 's Sea"{
-	usuario.volarAunDestino(silversSea)
-	assert.equals(#{silversSea,lasToninas,goodAirs},usuario.lugaresVisitados())
-}
-//test "Hacer que PHari vuele a Silver 's Sea y que halla diferencia en su cuenta"{
-	//usuario.volarAunDestino(silversSea)
-	//assert.equals(150,usuario.cuentaBarrileteCosmico())
-//}
+    
+    test "obtener las millas de Phair"{
+    	assert.equals(500,usuario.millas())
+    }
+  
+	    
+    test "Conocer la carta de destinos de Barrilete Cósmico"{
+        assert.equals(#{garlicsSea,silversSea,lasToninas,goodAirs},barrileteCosmico.destinos())
+         }
+
+    test "Hacer que PHari vuele a Silver 's Sea"{
+	    usuario.volarAunDestino(silversSea)
+	    assert.equals(#{silversSea,lasToninas,goodAirs},usuario.lugaresVisitados())
+        }
+   
+    test "Hacer que PHari vuele a Silver 's Sea y que halla diferencia en su cuenta"{
+	    usuario.volarAunDestino(silversSea)
+	    assert.equals(150,usuario.cuentaBarrileteCosmico())
+        }
 
 }
 	
+
+
 
